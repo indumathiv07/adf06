@@ -1,0 +1,20 @@
+{
+	"name": "CS_BLUCKCSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_BLUCKCSV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "outputmultiplefiles"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

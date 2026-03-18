@@ -1,0 +1,9 @@
+{
+	"name": "adfbank001",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "bce03266-5667-41e3-b4ce-95eee8c427d7",
+		"tenantId": "7af9c6ce-11e0-443b-b0e9-85273965f988"
+	}
+}
