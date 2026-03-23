@@ -1,0 +1,213 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfbank001"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage3_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage4_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage5_accountKey": {
+			"value": ""
+		},
+		"LS_BLOB_connectionString": {
+			"value": ""
+		},
+		"LS_BLOB_SQL_CSV_connectionString": {
+			"value": ""
+		},
+		"LS_BLUCKCSV_accountKey": {
+			"value": ""
+		},
+		"LS_MULTIFILE_CSV_accountKey": {
+			"value": ""
+		},
+		"LS_ONPREM_SQL_password": {
+			"value": ""
+		},
+		"LS_SP_SQL_ERROR_password": {
+			"value": ""
+		},
+		"LS_SP_SQL_SUCCESS_password": {
+			"value": ""
+		},
+		"LS_SQL_connectionString": {
+			"value": ""
+		},
+		"LS_SQLSERVER_TBLLKUP_password": {
+			"value": ""
+		},
+		"LS_SQL_ADLS_password": {
+			"value": ""
+		},
+		"LS_SQL_WATERMRKTBL_password": {
+			"value": ""
+		},
+		"LinkedServiceSqlServer3_password": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"SqlServer2_password": {
+			"value": ""
+		},
+		"SqlServer3_password": {
+			"value": ""
+		},
+		"SqlServer4_password": {
+			"value": ""
+		},
+		"linkSqlServer3_password": {
+			"value": ""
+		},
+		"linkedAzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://adlsdevbankk001.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://adlsdevbankk001.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
+			"value": "https://adlsdevbankk001.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage4_properties_typeProperties_url": {
+			"value": "https://adlsdevbankk001.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage5_properties_typeProperties_url": {
+			"value": "https://adlsdevbankk001.dfs.core.windows.net/"
+		},
+		"LS_BLUCKCSV_properties_typeProperties_url": {
+			"value": "https://adlsdevbankk001.dfs.core.windows.net/"
+		},
+		"LS_MULTIFILE_CSV_properties_typeProperties_url": {
+			"value": "https://adlsdevbankk001.dfs.core.windows.net"
+		},
+		"LS_ONPREM_SQL_properties_typeProperties_server": {
+			"value": "JASVIK"
+		},
+		"LS_ONPREM_SQL_properties_typeProperties_database": {
+			"value": "MyDatabase"
+		},
+		"LS_ONPREM_SQL_properties_typeProperties_userName": {
+			"value": "Indumathi R"
+		},
+		"LS_SP_SQL_ERROR_properties_typeProperties_server": {
+			"value": "JASVIK"
+		},
+		"LS_SP_SQL_ERROR_properties_typeProperties_database": {
+			"value": "spdemo"
+		},
+		"LS_SP_SQL_ERROR_properties_typeProperties_userName": {
+			"value": "Indumathi R"
+		},
+		"LS_SP_SQL_SUCCESS_properties_typeProperties_server": {
+			"value": "JASVIK"
+		},
+		"LS_SP_SQL_SUCCESS_properties_typeProperties_database": {
+			"value": "spdemo"
+		},
+		"LS_SP_SQL_SUCCESS_properties_typeProperties_userName": {
+			"value": "Indumathi R"
+		},
+		"LS_SQLSERVER_TBLLKUP_properties_typeProperties_server": {
+			"value": "JASVIK"
+		},
+		"LS_SQLSERVER_TBLLKUP_properties_typeProperties_database": {
+			"value": "mainproject"
+		},
+		"LS_SQLSERVER_TBLLKUP_properties_typeProperties_userName": {
+			"value": "Indumathi R"
+		},
+		"LS_SQL_ADLS_properties_typeProperties_server": {
+			"value": "JASVIK"
+		},
+		"LS_SQL_ADLS_properties_typeProperties_database": {
+			"value": "MyDatabase"
+		},
+		"LS_SQL_ADLS_properties_typeProperties_userName": {
+			"value": "Indumathi R"
+		},
+		"LS_SQL_WATERMRKTBL_properties_typeProperties_server": {
+			"value": "JASVIK"
+		},
+		"LS_SQL_WATERMRKTBL_properties_typeProperties_database": {
+			"value": "mainproject"
+		},
+		"LS_SQL_WATERMRKTBL_properties_typeProperties_userName": {
+			"value": "Indumathi R"
+		},
+		"LinkedServiceSqlServer3_properties_typeProperties_server": {
+			"value": "JASVIK"
+		},
+		"LinkedServiceSqlServer3_properties_typeProperties_database": {
+			"value": "MyDatabase"
+		},
+		"LinkedServiceSqlServer3_properties_typeProperties_userName": {
+			"value": "Indumathi R"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://retoolapi.dev/5yDVOt/data"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "JASVIK"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "spdemo"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "Indumathi R"
+		},
+		"SqlServer2_properties_typeProperties_server": {
+			"value": "JASVIK"
+		},
+		"SqlServer2_properties_typeProperties_database": {
+			"value": "spdemo"
+		},
+		"SqlServer2_properties_typeProperties_userName": {
+			"value": "Indumathi R "
+		},
+		"SqlServer3_properties_typeProperties_server": {
+			"value": "JASVIK"
+		},
+		"SqlServer3_properties_typeProperties_database": {
+			"value": "spdemo"
+		},
+		"SqlServer3_properties_typeProperties_userName": {
+			"value": "Indumathi R"
+		},
+		"SqlServer4_properties_typeProperties_server": {
+			"value": "JASVIK"
+		},
+		"SqlServer4_properties_typeProperties_database": {
+			"value": "spdemo"
+		},
+		"SqlServer4_properties_typeProperties_userName": {
+			"value": "Indumathi R"
+		},
+		"linkSqlServer3_properties_typeProperties_server": {
+			"value": "JASVIK"
+		},
+		"linkSqlServer3_properties_typeProperties_database": {
+			"value": "MyDatabase"
+		},
+		"linkSqlServer3_properties_typeProperties_userName": {
+			"value": "Indumathi R"
+		}
+	}
+}
