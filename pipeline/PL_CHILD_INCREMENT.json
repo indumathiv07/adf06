@@ -68,7 +68,7 @@
 					},
 					"ifTrueActivities": [
 						{
-							"name": "Copy data1",
+							"name": "CPYSQL_FULL_IN_CTLOAD_TABLES",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
