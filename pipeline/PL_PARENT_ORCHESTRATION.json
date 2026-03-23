@@ -55,6 +55,10 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
+								"pipeline": {
+									"referenceName": "PL_CHILD_INCREMENT",
+									"type": "PipelineReference"
+								},
 								"waitOnCompletion": true
 							}
 						}
