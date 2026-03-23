@@ -396,7 +396,16 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
+						"userProperties": [
+							{
+								"name": "Scehmaname",
+								"value": "dbo"
+							},
+							{
+								"name": "tablename",
+								"value": "ADF_Watermark_Table"
+							}
+						],
 						"typeProperties": {
 							"source": {
 								"type": "SqlServerSource",
@@ -1179,6 +1188,16 @@
 				"linkedServiceName": {
 					"referenceName": "LS_LKUP_MAX_VALUE",
 					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"tablename": {
+						"type": "string",
+						"defaultValue": "ADF_Watermark_Table"
+					},
+					"Schemaname": {
+						"type": "string",
+						"defaultValue": "dbo"
+					}
 				},
 				"annotations": [],
 				"type": "SqlServerTable",
