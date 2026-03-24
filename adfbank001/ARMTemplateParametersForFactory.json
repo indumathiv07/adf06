@@ -41,6 +41,9 @@
 		"LS_ONPREM_SQL_password": {
 			"value": ""
 		},
+		"LS_ONPREM_sqlserver_password": {
+			"value": ""
+		},
 		"LS_SP_SQL_ERROR_password": {
 			"value": ""
 		},
@@ -54,6 +57,9 @@
 			"value": ""
 		},
 		"LS_SQL_ADLS_password": {
+			"value": ""
+		},
+		"LS_SQL_SP_password": {
 			"value": ""
 		},
 		"LS_SQL_WATERMRKTBL_password": {
@@ -72,6 +78,9 @@
 			"value": ""
 		},
 		"SqlServer4_password": {
+			"value": ""
+		},
+		"lS_sqltable_Parquet_accountKey": {
 			"value": ""
 		},
 		"linkSqlServer3_password": {
@@ -119,6 +128,15 @@
 		"LS_ONPREM_SQL_properties_typeProperties_userName": {
 			"value": "Indumathi R"
 		},
+		"LS_ONPREM_sqlserver_properties_typeProperties_server": {
+			"value": "JASVIK"
+		},
+		"LS_ONPREM_sqlserver_properties_typeProperties_database": {
+			"value": "mainproject"
+		},
+		"LS_ONPREM_sqlserver_properties_typeProperties_userName": {
+			"value": "Indumathi R"
+		},
 		"LS_SP_SQL_ERROR_properties_typeProperties_server": {
 			"value": "JASVIK"
 		},
@@ -153,6 +171,15 @@
 			"value": "MyDatabase"
 		},
 		"LS_SQL_ADLS_properties_typeProperties_userName": {
+			"value": "Indumathi R"
+		},
+		"LS_SQL_SP_properties_typeProperties_server": {
+			"value": "JASVIK"
+		},
+		"LS_SQL_SP_properties_typeProperties_database": {
+			"value": "mainproject"
+		},
+		"LS_SQL_SP_properties_typeProperties_userName": {
 			"value": "Indumathi R"
 		},
 		"LS_SQL_WATERMRKTBL_properties_typeProperties_server": {
@@ -211,6 +238,9 @@
 		},
 		"SqlServer4_properties_typeProperties_userName": {
 			"value": "Indumathi R"
+		},
+		"lS_sqltable_Parquet_properties_typeProperties_url": {
+			"value": "https://adlsdevbankk001.dfs.core.windows.net/"
 		},
 		"linkSqlServer3_properties_typeProperties_server": {
 			"value": "JASVIK"

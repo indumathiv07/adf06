@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_ONPREM_SQL'"
 		},
+		"LS_ONPREM_sqlserver_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_ONPREM_sqlserver'"
+		},
 		"LS_SP_SQL_ERROR_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SP_SQL_ERROR'"
@@ -31,6 +35,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SQL_ADLS'"
 		},
+		"LS_SQL_SP_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_SP'"
+		},
 		"LS_SQL_WATERMRKTBL_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SQL_WATERMRKTBL'"
@@ -46,18 +54,6 @@
 		"SqlServer2_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServer2'"
-		},
-		"SqlServer3_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'SqlServer3'"
-		},
-		"SqlServer4_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'SqlServer4'"
-		},
-		"linkSqlServer3_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'linkSqlServer3'"
 		},
 		"LS_LKUP_MAX_VALUE_properties_typeProperties_server": {
 			"type": "string",
@@ -80,6 +76,18 @@
 			"defaultValue": "MyDatabase"
 		},
 		"LS_ONPREM_SQL_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Indumathi R"
+		},
+		"LS_ONPREM_sqlserver_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "JASVIK"
+		},
+		"LS_ONPREM_sqlserver_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "mainproject"
+		},
+		"LS_ONPREM_sqlserver_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Indumathi R"
 		},
@@ -131,6 +139,18 @@
 			"type": "string",
 			"defaultValue": "Indumathi R"
 		},
+		"LS_SQL_SP_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "JASVIK"
+		},
+		"LS_SQL_SP_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "mainproject"
+		},
+		"LS_SQL_SP_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Indumathi R"
+		},
 		"LS_SQL_WATERMRKTBL_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "JASVIK"
@@ -178,48 +198,72 @@
 		"SqlServer2_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Indumathi R "
-		},
-		"SqlServer3_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "JASVIK"
-		},
-		"SqlServer3_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "spdemo"
-		},
-		"SqlServer3_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Indumathi R"
-		},
-		"SqlServer4_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "JASVIK"
-		},
-		"SqlServer4_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "spdemo"
-		},
-		"SqlServer4_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Indumathi R"
-		},
-		"linkSqlServer3_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "JASVIK"
-		},
-		"linkSqlServer3_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "MyDatabase"
-		},
-		"linkSqlServer3_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Indumathi R"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_sqltable_Parquet')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lS_sqltable_Parquet",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"Tablename": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@concat(dataset().TableName,'_',formatDateTime(utcNow(),'yyyyMMddHHmmss'),'.parquet')",
+							"type": "Expression"
+						},
+						"folderPath": {
+							"value": "@concat(dataset().Tablename,'/',formatDateTime(utcNow(),'yyyy/MM/dd'))",
+							"type": "Expression"
+						},
+						"fileSystem": "outputmiragrationpr"
+					},
+					"compressionCodec": "none"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "linkedAzureBlobStorage2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DelimitedText2')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
@@ -423,6 +467,32 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/LS_ONPREM_sqlserver')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('LS_ONPREM_sqlserver_properties_typeProperties_server')]",
+					"database": "[parameters('LS_ONPREM_sqlserver_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": true,
+					"authenticationType": "SQL",
+					"userName": "[parameters('LS_ONPREM_sqlserver_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LS_ONPREM_sqlserver_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/LS_SP_SQL_ERROR')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -520,6 +590,32 @@
 					},
 					"alwaysEncryptedSettings": {
 						"alwaysEncryptedAkvAuthType": "ManagedIdentity"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_SQL_SP')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('LS_SQL_SP_properties_typeProperties_server')]",
+					"database": "[parameters('LS_SQL_SP_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": true,
+					"authenticationType": "SQL",
+					"userName": "[parameters('LS_SQL_SP_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LS_SQL_SP_password')]"
 					}
 				},
 				"connectVia": {
@@ -630,160 +726,6 @@
 					"referenceName": "integrationRuntime1",
 					"type": "IntegrationRuntimeReference"
 				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SqlServer3')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"server": "[parameters('SqlServer3_properties_typeProperties_server')]",
-					"database": "[parameters('SqlServer3_properties_typeProperties_database')]",
-					"encrypt": "optional",
-					"trustServerCertificate": true,
-					"authenticationType": "SQL",
-					"userName": "[parameters('SqlServer3_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('SqlServer3_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "integrationRuntime1",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SqlServer4')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"server": "[parameters('SqlServer4_properties_typeProperties_server')]",
-					"database": "[parameters('SqlServer4_properties_typeProperties_database')]",
-					"encrypt": "optional",
-					"trustServerCertificate": true,
-					"authenticationType": "SQL",
-					"userName": "[parameters('SqlServer4_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('SqlServer4_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "integrationRuntime1",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/linkSqlServer3')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"server": "[parameters('linkSqlServer3_properties_typeProperties_server')]",
-					"database": "[parameters('linkSqlServer3_properties_typeProperties_database')]",
-					"encrypt": "optional",
-					"trustServerCertificate": true,
-					"authenticationType": "SQL",
-					"userName": "[parameters('linkSqlServer3_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('linkSqlServer3_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "integrationRuntime1",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CPY_MULTIPLEFILES')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "CPY_MULTIPLEFILES",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
-									"recursive": true,
-									"wildcardFileName": "*.CSV",
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
-								}
-							},
-							"sink": {
-								"type": "DelimitedTextSink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
-								},
-								"formatSettings": {
-									"type": "DelimitedTextWriteSettings",
-									"quoteAllText": true,
-									"fileExtension": ".txt"
-								}
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "DS_MULTIFILES_CSV",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "DS_BLUCKCSV",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": [],
-				"lastPublishTime": "2026-03-13T08:32:56Z"
 			},
 			"dependsOn": []
 		}

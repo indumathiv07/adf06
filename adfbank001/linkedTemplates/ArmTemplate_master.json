@@ -55,6 +55,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_ONPREM_SQL'"
 		},
+		"LS_ONPREM_sqlserver_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_ONPREM_sqlserver'"
+		},
 		"LS_SP_SQL_ERROR_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SP_SQL_ERROR'"
@@ -74,6 +78,10 @@
 		"LS_SQL_ADLS_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SQL_ADLS'"
+		},
+		"LS_SQL_SP_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_SP'"
 		},
 		"LS_SQL_WATERMRKTBL_password": {
 			"type": "secureString",
@@ -98,6 +106,10 @@
 		"SqlServer4_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServer4'"
+		},
+		"lS_sqltable_Parquet_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'lS_sqltable_Parquet'"
 		},
 		"linkSqlServer3_password": {
 			"type": "secureString",
@@ -159,6 +171,18 @@
 			"type": "string",
 			"defaultValue": "Indumathi R"
 		},
+		"LS_ONPREM_sqlserver_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "JASVIK"
+		},
+		"LS_ONPREM_sqlserver_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "mainproject"
+		},
+		"LS_ONPREM_sqlserver_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Indumathi R"
+		},
 		"LS_SP_SQL_ERROR_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "JASVIK"
@@ -204,6 +228,18 @@
 			"defaultValue": "MyDatabase"
 		},
 		"LS_SQL_ADLS_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Indumathi R"
+		},
+		"LS_SQL_SP_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "JASVIK"
+		},
+		"LS_SQL_SP_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "mainproject"
+		},
+		"LS_SQL_SP_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Indumathi R"
 		},
@@ -283,6 +319,10 @@
 			"type": "string",
 			"defaultValue": "Indumathi R"
 		},
+		"lS_sqltable_Parquet_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevbankk001.dfs.core.windows.net/"
+		},
 		"linkSqlServer3_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "JASVIK"
@@ -355,6 +395,9 @@
 					"LS_SQL_connectionString": {
 						"value": "[parameters('LS_SQL_connectionString')]"
 					},
+					"lS_sqltable_Parquet_accountKey": {
+						"value": "[parameters('lS_sqltable_Parquet_accountKey')]"
+					},
 					"linkedAzureBlobStorage2_connectionString": {
 						"value": "[parameters('linkedAzureBlobStorage2_connectionString')]"
 					},
@@ -381,6 +424,9 @@
 					},
 					"RestService1_properties_typeProperties_url": {
 						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"lS_sqltable_Parquet_properties_typeProperties_url": {
+						"value": "[parameters('lS_sqltable_Parquet_properties_typeProperties_url')]"
 					}
 				}
 			},
@@ -406,6 +452,9 @@
 					"LS_ONPREM_SQL_password": {
 						"value": "[parameters('LS_ONPREM_SQL_password')]"
 					},
+					"LS_ONPREM_sqlserver_password": {
+						"value": "[parameters('LS_ONPREM_sqlserver_password')]"
+					},
 					"LS_SP_SQL_ERROR_password": {
 						"value": "[parameters('LS_SP_SQL_ERROR_password')]"
 					},
@@ -418,6 +467,9 @@
 					"LS_SQL_ADLS_password": {
 						"value": "[parameters('LS_SQL_ADLS_password')]"
 					},
+					"LS_SQL_SP_password": {
+						"value": "[parameters('LS_SQL_SP_password')]"
+					},
 					"LS_SQL_WATERMRKTBL_password": {
 						"value": "[parameters('LS_SQL_WATERMRKTBL_password')]"
 					},
@@ -429,15 +481,6 @@
 					},
 					"SqlServer2_password": {
 						"value": "[parameters('SqlServer2_password')]"
-					},
-					"SqlServer3_password": {
-						"value": "[parameters('SqlServer3_password')]"
-					},
-					"SqlServer4_password": {
-						"value": "[parameters('SqlServer4_password')]"
-					},
-					"linkSqlServer3_password": {
-						"value": "[parameters('linkSqlServer3_password')]"
 					},
 					"LS_LKUP_MAX_VALUE_properties_typeProperties_server": {
 						"value": "[parameters('LS_LKUP_MAX_VALUE_properties_typeProperties_server')]"
@@ -456,6 +499,15 @@
 					},
 					"LS_ONPREM_SQL_properties_typeProperties_userName": {
 						"value": "[parameters('LS_ONPREM_SQL_properties_typeProperties_userName')]"
+					},
+					"LS_ONPREM_sqlserver_properties_typeProperties_server": {
+						"value": "[parameters('LS_ONPREM_sqlserver_properties_typeProperties_server')]"
+					},
+					"LS_ONPREM_sqlserver_properties_typeProperties_database": {
+						"value": "[parameters('LS_ONPREM_sqlserver_properties_typeProperties_database')]"
+					},
+					"LS_ONPREM_sqlserver_properties_typeProperties_userName": {
+						"value": "[parameters('LS_ONPREM_sqlserver_properties_typeProperties_userName')]"
 					},
 					"LS_SP_SQL_ERROR_properties_typeProperties_server": {
 						"value": "[parameters('LS_SP_SQL_ERROR_properties_typeProperties_server')]"
@@ -493,6 +545,15 @@
 					"LS_SQL_ADLS_properties_typeProperties_userName": {
 						"value": "[parameters('LS_SQL_ADLS_properties_typeProperties_userName')]"
 					},
+					"LS_SQL_SP_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL_SP_properties_typeProperties_server')]"
+					},
+					"LS_SQL_SP_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL_SP_properties_typeProperties_database')]"
+					},
+					"LS_SQL_SP_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL_SP_properties_typeProperties_userName')]"
+					},
 					"LS_SQL_WATERMRKTBL_properties_typeProperties_server": {
 						"value": "[parameters('LS_SQL_WATERMRKTBL_properties_typeProperties_server')]"
 					},
@@ -528,6 +589,35 @@
 					},
 					"SqlServer2_properties_typeProperties_userName": {
 						"value": "[parameters('SqlServer2_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfbank001_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "adfbank001_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"SqlServer3_password": {
+						"value": "[parameters('SqlServer3_password')]"
+					},
+					"SqlServer4_password": {
+						"value": "[parameters('SqlServer4_password')]"
+					},
+					"linkSqlServer3_password": {
+						"value": "[parameters('linkSqlServer3_password')]"
 					},
 					"SqlServer3_properties_typeProperties_server": {
 						"value": "[parameters('SqlServer3_properties_typeProperties_server')]"
@@ -555,26 +645,6 @@
 					},
 					"linkSqlServer3_properties_typeProperties_userName": {
 						"value": "[parameters('linkSqlServer3_properties_typeProperties_userName')]"
-					}
-				}
-			},
-			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'adfbank001_ArmTemplate_0')]"
-			]
-		},
-		{
-			"name": "adfbank001_ArmTemplate_2",
-			"type": "Microsoft.Resources/deployments",
-			"apiVersion": "2024-03-01",
-			"properties": {
-				"mode": "incremental",
-				"templateLink": {
-					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
-					"contentVersion": "1.0.0.0"
-				},
-				"parameters": {
-					"factoryName": {
-						"value": "[parameters('factoryName')]"
 					}
 				}
 			},
