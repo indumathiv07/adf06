@@ -6,13 +6,11 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"tablename": {
-				"type": "string",
-				"defaultValue": "ADF_Watermark_Table"
-			},
 			"Schemaname": {
-				"type": "string",
-				"defaultValue": "dbo"
+				"type": "string"
+			},
+			"tablename": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -37,8 +35,14 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "dbo",
-			"table": "ADF_Watermark_Table"
+			"schema": {
+				"value": "@dataset().Schemaname",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().tablename",
+				"type": "Expression"
+			}
 		}
 	}
 }
