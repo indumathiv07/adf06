@@ -91,9 +91,13 @@
 									"partitionOption": "None"
 								},
 								"sink": {
-									"type": "SqlServerSink",
-									"writeBehavior": "insert",
-									"sqlWriterUseTableLock": false
+									"type": "ParquetSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "ParquetWriteSettings"
+									}
 								},
 								"enableStaging": false,
 								"translator": {
@@ -123,8 +127,14 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "DS_LKUP_MAX_VALUE",
-									"type": "DatasetReference"
+									"referenceName": "DS_sqltable_Parquet",
+									"type": "DatasetReference",
+									"parameters": {
+										"Tablename": {
+											"value": "@pipeline().parameters.TableName",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						},
