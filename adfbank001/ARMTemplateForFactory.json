@@ -1676,7 +1676,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"fileName": {
-							"value": "@concat(dataset().TableName,'_',formatDateTime(utcNow(),'yyyyMMddHHmmss'),'.parquet')",
+							"value": "@concat(dataset().Tablename,'_',formatDateTime(utcNow(),'yyyyMMddHHmmss'),'.parquet')",
 							"type": "Expression"
 						},
 						"folderPath": {
