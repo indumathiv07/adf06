@@ -1649,7 +1649,7 @@
 				],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "ADF_Watermark_Table"
+					"table": "ADF_Watermark_Table1"
 				}
 			},
 			"dependsOn": [
