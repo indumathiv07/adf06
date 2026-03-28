@@ -25,10 +25,6 @@
 				"type": "bigint",
 				"precision": 19
 			}
-		],
-		"typeProperties": {
-			"schema": "dbo",
-			"table": "ADF_Watermark_Table1"
-		}
+		]
 	}
 }
