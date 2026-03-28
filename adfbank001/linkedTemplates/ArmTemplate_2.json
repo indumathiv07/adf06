@@ -244,7 +244,7 @@
 								},
 								"TableSchema": {
 									"value": {
-										"value": "@pipeline().parameters.TableScheme",
+										"value": "@pipeline().parameters.TableSchema",
 										"type": "Expression"
 									},
 									"type": "String"
@@ -271,7 +271,7 @@
 					"TableName": {
 						"type": "string"
 					},
-					"TableScheme": {
+					"TableSchema": {
 						"type": "string"
 					},
 					"WatermarkColumn": {
@@ -959,43 +959,6 @@
 											}
 										}
 									]
-								},
-								{
-									"name": "EXEC_UPDATE_WTRMRK",
-									"type": "ExecutePipeline",
-									"dependsOn": [
-										{
-											"activity": "CPYSQL_FULL_LOAD_TABLES",
-											"dependencyConditions": [
-												"Succeeded"
-											]
-										}
-									],
-									"policy": {
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"pipeline": {
-											"referenceName": "PL_CHILD_STOREDPROCEDURE",
-											"type": "PipelineReference"
-										},
-										"waitOnCompletion": true,
-										"parameters": {
-											"TableName": {
-												"value": "@pipeline().parameters.TableName",
-												"type": "Expression"
-											},
-											"TableScheme": {
-												"value": "@pipeline().parameters.TableSchema",
-												"type": "Expression"
-											},
-											"WatermarkColumn": {
-												"value": "@pipeline().parameters.WatermarkColumn",
-												"type": "Expression"
-											}
-										}
-									}
 								}
 							]
 						}
@@ -1021,8 +984,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DS_LKUP_MAX_VALUE')]",
-				"[concat(variables('factoryId'), '/pipelines/PL_CHILD_STOREDPROCEDURE')]"
+				"[concat(variables('factoryId'), '/datasets/DS_LKUP_MAX_VALUE')]"
 			]
 		},
 		{
