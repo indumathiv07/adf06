@@ -608,7 +608,7 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"storedProcedureName": "[[dbo].[UpdateWatermark1]",
+							"storedProcedureName": "[[dbo].[UpdateWatermark]",
 							"storedProcedureParameters": {
 								"TableName": {
 									"value": {
@@ -1612,10 +1612,7 @@
 						"precision": 19
 					}
 				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "ADF_Watermark_Table1"
-				}
+				"typeProperties": {}
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/LS_SQL_WATERMRKTBL')]"
