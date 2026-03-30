@@ -646,7 +646,7 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"storedProcedureName": "[[dbo].[UpdateWatermark]",
+							"storedProcedureName": "[[dbo].[UpdateWatermark1]",
 							"storedProcedureParameters": {
 								"TableName": {
 									"value": {
